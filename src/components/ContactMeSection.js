@@ -32,16 +32,22 @@ const LandingSection = () => {
     },
     onSubmit: (values,actions) => {
      submit("url",values)
-     onOpen(response.type,response.message)
-     response.type?actions.resetForm():null
+     
     },
     validationSchema: Yup.object({
       firstName : Yup.string().required("Required"),
       email : Yup.string().email("In-valid Email").required('Required'),
-      comment : Yup.string().required("Required"),
+      comment : Yup.string().min(25, "Must be at least 25 characters").required("Required"),
     }),
   });
-
+  useEffect(() => {
+    if (response) {
+      onOpen(response.type, response.message);
+      (response.type === "success") ? 
+        formik.resetForm():null;
+      
+    }
+  }, [response]);
   return (
     <FullScreenSection
       isDarkBackground
