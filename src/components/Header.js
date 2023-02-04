@@ -33,8 +33,10 @@ const socials = [
 ];
 
 const Header = () => {
+  const refHeader=useRef(null)
   const handleClick = (anchor) => () => {
     const id = `${anchor}-section`;
+    console.log(refHeader.current)
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({
@@ -43,6 +45,11 @@ const Header = () => {
       });
     }
   };
+
+
+  // LInk ID for section  variables 
+const Contact_me="contactme"
+const Projects="projects"
 
   return (
     <Box
@@ -55,6 +62,7 @@ const Header = () => {
       transitionDuration=".3s"
       transitionTimingFunction="ease-in-out"
       backgroundColor="#18181b"
+      ref={refHeader}
     >
       <Box color="white" maxWidth="1280px" margin="0 auto">
         <HStack
@@ -74,7 +82,9 @@ const Header = () => {
           </nav>
           <nav>
             <HStack spacing={8}>
-              {/* Add links to Projects and Contact me section */}
+
+              <Link  onClick={handleClick(Contact_me)}> Contact Me</Link>
+              <Link onClick={handleClick(Projects)}> Projects</Link>
             </HStack>
           </nav>
         </HStack>
