@@ -8,19 +8,20 @@ import {
   faStackOverflow,
 } from "@fortawesome/free-brands-svg-icons";
 import { Box, HStack,Link } from "@chakra-ui/react";
+import DrawerExample from "./DrawerComponmet";
 
 const socials = [
   {
     icon: faEnvelope,
-    url: "mailto: hello@example.com",
+    url: "mailto: mandelaakosu@gmail.com",
   },
   {
     icon: faGithub,
-    url: "https://github.com",
+    url: "https://github.com/maakosu2",
   },
   {
     icon: faLinkedin,
-    url: "https://www.linkedin.com",
+    url: "https://www.linkedin.com/in/mandela-aondohemba-akosu-23055aab/",
   },
   {
     icon: faMedium,
@@ -104,7 +105,7 @@ const Projects="projects"
           </nav>
           <nav>
             <HStack spacing={8}>
-
+                <DrawerExample/>
               <Link  onClick={handleClick(Contact_me)}> Contact Me</Link>
               <Link onClick={handleClick(Projects)}> Projects</Link>
             </HStack>
